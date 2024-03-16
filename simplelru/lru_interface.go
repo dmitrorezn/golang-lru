@@ -4,6 +4,8 @@
 // Package simplelru provides simple LRU implementation based on build-in container/list.
 package simplelru
 
+import "time"
+
 // LRUCache is the interface for simple LRU cache.
 type LRUCache[K comparable, V any] interface {
 	// Adds a value to the cache, returns true if an eviction occurred and
@@ -46,4 +48,12 @@ type LRUCache[K comparable, V any] interface {
 
 	// Resizes cache, returning number evicted
 	Resize(int) int
+}
+
+// LRUCacheExpireable is the interface for expireable LRU cache.
+type LRUCacheExpireable[K comparable, V any] interface {
+	// Set - Sets a value to the cache, returns true if an eviction occurred and
+	// updates the "recently used"-ness of the key.
+	Set(k K, v V, ttlOpt ...time.Duration) bool
+	LRUCache[K, V]
 }
