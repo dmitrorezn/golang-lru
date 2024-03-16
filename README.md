@@ -17,7 +17,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/hashicorp/golang-lru/v2"
+	"github.com/dmitrorezn/golang-lru/v2"
 )
 
 func main() {
@@ -41,7 +41,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/hashicorp/golang-lru/v2/expirable"
+	"github.com/dmitrorezn/golang-lru/v2/expirable"
 )
 
 func main() {
